@@ -1,8 +1,10 @@
-<h1>blogireee</h1>
+<h1>Blogs</h1>
+
+<h1>Padmaja has written {{ blog.count}} blog{{blog.count|pluralize}}</h1>
 
 {% for i in blog %}
-<h1>{{ i.title }}</h1>
-<h2>{{ i.description }}</h2>
-<p>{{ i.date }}</p>
+<a href="{% url  'blog:details'  i.id %}"><h1>{{ i.title }}</h1></a>
+<h2>{{ i.description|truncatechars:4 }}</h2>
+<p>{{ i.date|date:'M d Y'|upper }}</p>
 
 {% endfor %}

@@ -1,12 +1,12 @@
 <h1>Home</h1>
 
 {% load static %}
+<a href="{% url "blog:blog" %}">Blog</a>
+<br>
 <img src="{% static "porfolio/IMG_2291.JPG" %}" alt="My image" height=200 ,width=200>
-
-
 {% for i in project %}
  <h2>{{ i.title }}</h2>   
- <p>{{ i.description }}</p>
+ <p>{{ i.description|safe }}</p>
  <img src= "{{ i.img.url }}" height=300 width=300>
  {% if i.url %}
  <br>
